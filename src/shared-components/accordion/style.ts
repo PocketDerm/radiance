@@ -63,25 +63,26 @@ const TitleWrapper = styled.div<{
   display: flex;
   justify-content: space-between;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  
+
   &:focus {
     outline: none;
     box-shadow: ${({ theme }) => theme.BOX_SHADOWS.focusInner};
   }
 
-  ${AccordionBox}:last-of-type & {
-    &:focus {
-      ${({ borderRadius, isOpen, theme }) => {
-        if (!isOpen) {
-          const borderRadiusValue = theme.BORDER_RADIUS[borderRadius];
+  ${({ borderRadius, isOpen, theme }) => {
+    if (!isOpen) {
+      const borderRadiusValue = theme.BORDER_RADIUS[borderRadius];
 
-          return `border-bottom-left-radius: ${borderRadiusValue}; 
-                  border-bottom-right-radius: ${borderRadiusValue};`;
-        }
-        return '';
-      }}}
+      return `${AccordionBox}:last-of-type & {
+          &:focus { 
+            border-bottom-left-radius: ${borderRadiusValue}; 
+            border-bottom-right-radius: ${borderRadiusValue};
+          }
+        }`;
     }
-  }
+
+    return '';
+  }}
 `;
 
 const Truncate = styled.div`
