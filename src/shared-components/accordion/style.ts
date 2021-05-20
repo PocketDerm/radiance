@@ -64,11 +64,6 @@ const TitleWrapper = styled.div<{
   justify-content: space-between;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-  &:focus {
-    outline: none;
-    box-shadow: ${({ theme }) => theme.BOX_SHADOWS.focusInner};
-  }
-
   ${({ borderRadius, isOpen, theme }) => {
     if (!isOpen) {
       const borderRadiusValue = theme.BORDER_RADIUS[borderRadius];
@@ -83,6 +78,11 @@ const TitleWrapper = styled.div<{
 
     return '';
   }}
+
+  &:focus {
+    outline: none;
+    box-shadow: ${({ theme }) => theme.BOX_SHADOWS.focusInner};
+  }
 `;
 
 const Truncate = styled.div`
