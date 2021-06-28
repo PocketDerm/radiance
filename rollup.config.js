@@ -31,9 +31,7 @@ const defaultConfig = {
     sizeSnapshot(),
   ],
   /**
-   * @emotion/styled/base needs to be added explicitly because our
-   * @emotion/styled imports transpile specifically to @emotion/styled/base,
-   * which results in build errors if we do not include it.
+   * @emotion/styled/base imports are injected by @emotion/babel-preset-css-prop
    */
   external: [...Object.keys(pkg.dependencies), '@emotion/styled/base'],
 };
