@@ -45,7 +45,6 @@ export default [
       {
         file: 'dist/bundle.js',
         format: 'cjs',
-        name: 'radianceUi',
       },
     ],
   },
